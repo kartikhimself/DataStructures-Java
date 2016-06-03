@@ -1,9 +1,8 @@
 // Singly Linked List
 
 /**
- * Kartik 22/05/16
+ * Created by kartik on 20/05/16.
  */
-
 public class LinkedList {
 
     Node head = null;
@@ -19,23 +18,20 @@ public class LinkedList {
         }
 
         //Printing linked list
-        System.out.println("Linked List elements : ");
         l.traverseList(l);
         System.out.print("Linked List size: ");
         l.display(l.getListSize());
 
         //deleting a node with a particular value
         l.delete(4);
-        System.out.println("Linked List elements after deletion : ");
         l.traverseList(l);
-        System.out.print("Linked List size after deletion: ");
+        System.out.print("Linked List size : ");
         l.display(l.getListSize());
 
         //inserting a node after a perticular node
         l.insertAfter(3,4);
-        System.out.println("Linked List elements after insertion : ");
         l.traverseList(l);
-        System.out.print("Linked List size after insertion: ");
+        System.out.print("Linked List size : ");
         l.display(l.getListSize());
 
 
@@ -66,6 +62,8 @@ public class LinkedList {
             display(tail.data);
 
         }
+        System.out.println("Adding element "+data);
+
     }
 
     /**
@@ -83,6 +81,7 @@ public class LinkedList {
             }
             n.next = new Node(data);
         }
+        System.out.println("Adding element "+data);
     }
 
     /**
@@ -93,14 +92,16 @@ public class LinkedList {
     public void insertAfter(int dataNode,int data){
         if (head != null) {
             Node n = head;
-            Node p = new Node(data);
+            Node previousNode = new Node(data);
             while (n.next != null) {
                 n = n.next;
                 if (n.data == dataNode) {
-                    p.next=n.next;
-                    n.next = p;
+                    previousNode.next=n.next;
+                    n.next = previousNode;
                 }
             }
+
+            System.out.println("Adding element "+data);
         }
     }
 
@@ -121,6 +122,9 @@ public class LinkedList {
                 }
             }
         }
+
+        System.out.println("Deleting element "+data);
+
     }
 
     /**
